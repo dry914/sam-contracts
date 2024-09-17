@@ -34,6 +34,16 @@ The details are described in:
 
 3. **Executing the Transaction**
 
+   All SAMM owners send emails to the relayer's email address with the multisig transaction ID specified in the email header. Each email includes a DKIM signature.
+
+   Upon receiving an email, the relayer generates a zk proof demonstrating that:
+   - The sender's email address is in the root of all SAMM participants.
+   - The recipient's email address is the relayer's address.
+   - The email header contains the correct multisig transaction ID.
+   - There is a DKIM signature verifying the authenticity of the email.
+
+   A SAMM participant also has the backup option to send proof directly to the module contract. This is necessary if there are any issues with the relayer.
+
    A transaction can only be executed once the proof threshold is met.
 
    ![Tx Execution Workflow](./img/TxWorkflow.png)
