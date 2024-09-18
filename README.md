@@ -4,7 +4,7 @@
 
 This is an implementation of the PoC contract for the [NCR#1](https://github.com/orgs/noir-lang/discussions/5932) grant.
 
-Our key concept is centered around the creation of a module for Safe multisig that ensures the anonymity of all its participants using ZK-SNARK technology and Noir language.
+Our key concept is the creation of a module for Safe multisig that ensures the anonymity of all its participants using ZK-SNARK technology.
 
 The details are described in:
 
@@ -14,7 +14,7 @@ The details are described in:
 
 1. **Owners of Safe wallet**
 
-   Safe multisig has a standard set of EOA owners who can manage the multisig without restrictions, including managing the rights of the SAMM module.
+   The multisig has a standard set of EOA owners who have full control over the multisig, including managing the rights of the SAMM module.
 
    The SAMM module has restrictions on what actions it can perform on behalf of the multisig (security policies). These restrictions are implemented and verified in the smart contract code. For example, the SAMM module cannot change the owners of the Safe multisig or can only call specific smart contracts. 
    
@@ -24,7 +24,7 @@ The details are described in:
 
 2. **Connecting the Module to Safe**
 
-   A Merkle tree is used to store the email addresses of the owners of the SAMM module.
+   A Merkle tree is used to store the email addresses of the SAMM module owners.
 
    Our module incorporates a proxy pattern, deployed through the SAMM Factory.
 
@@ -32,11 +32,11 @@ The details are described in:
 
    ![Contract Creation](./img/Initialization.png)
 
-3. **Executing the Transaction**
+3. **SAMM transaction execution**
 
    All SAMM owners send emails to the relayer's email address with the multisig transaction ID specified in the email header. Each email includes a DKIM signature.
 
-   Upon receiving an email, the relayer generates a zk proof demonstrating that:
+   Upon receiving an email, the relayer generates a zk proof that:
    - The sender's email address is in the root of all SAMM participants.
    - The recipient's email address is the relayer's address.
    - The email header contains the correct multisig transaction ID.
