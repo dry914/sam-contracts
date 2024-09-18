@@ -2,9 +2,7 @@
 
 ## Description
 
-This is an implementation of the PoC contract for the [NCR#1](https://github.com/orgs/noir-lang/discussions/5932) grant.
-
-Our key concept is the creation of a module for Safe multisig that ensures the anonymity of all its participants using ZK-SNARK technology.
+Our key concept is the creation of a module for Safe multisig that ensures the anonymity of all its participants using Noir language and zkMail architecture.
 
 The details are described in:
 
@@ -36,13 +34,12 @@ The details are described in:
 
    All SAMM owners send emails to the relayer's email address with the multisig transaction ID specified in the email header. Each email includes a DKIM signature.
 
-   Upon receiving an email, the relayer generates a zk proof that:
+   Upon receiving an email, the relayer generates zk proof that:
    - The sender's email address is in the root of all SAMM participants.
    - The recipient's email address is the relayer's address.
    - The email header contains the correct multisig transaction ID.
-   - There is a DKIM signature verifying the authenticity of the email.
-
-   A SAMM participant also has the backup option to send proof directly to the module contract. This is necessary if there are any issues with the relayer.
+   - There is a DKIM signature verifying the validity of the email.
+   Noir language is used for circuits. Circuits based on zkMail circuits and previous versions of SAM model circuits.
 
    A transaction can only be executed once the proof threshold is met.
 
@@ -59,7 +56,7 @@ The details are described in:
 2. **Porting and Development** - 3 weeks
    
    Deliverables:
-   - Conversion of Circom circuits to Noir.
+   - Conversion of Circom circuits to Noir (zkMail and SAM).
    - Development of the SAMM Module smart contract.
 
 3. **Integration and Testing** - 2 weeks
