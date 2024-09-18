@@ -35,7 +35,7 @@ The details are described in:
    All SAMM owners send emails to the relayer's email address with the multisig transaction ID specified in the email header. Each email includes a DKIM signature.
 
    Upon receiving an email, the relayer generates zk proof that:
-   - The sender's email address is in the root of all SAMM participants.
+   - The sender's email address is SAMM module participants.
    - The recipient's email address is the relayer's address.
    - The email header contains the correct multisig transaction ID.
    - There is a DKIM signature verifying the validity of the email.
