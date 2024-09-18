@@ -39,6 +39,7 @@ The details are described in:
    - The recipient's email address is the relayer's address.
    - The email header contains the correct multisig transaction ID.
    - There is a DKIM signature verifying the validity of the email.
+   
    Noir language is used for circuits. Circuits based on zkMail circuits and previous versions of SAM model circuits.
 
    A transaction can only be executed once the proof threshold is met.
